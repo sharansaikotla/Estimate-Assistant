@@ -58,7 +58,7 @@ export const LINEAR_TO_PER_YARD: Record<LinearPricingUnit, number> = {
 export const AREA_TO_SQ_YARD: Record<AreaPricingUnit, number> = {
   'per-sq-yard': 1,
   'per-sq-foot': 9, // 9 sq ft = 1 sq yard
-  'per-sq-meter': 1.19599, // 1 sq meter = 1.19599 sq yards
+  'per-sq-meter': 1 / 1.19599, // 1 sq meter = 1.19599 sq yards
 };
 
 // Area unit conversion factors (for calculating from linear dimensions)
