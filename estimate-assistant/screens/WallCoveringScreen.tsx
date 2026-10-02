@@ -63,7 +63,6 @@ export const WallCoveringScreen: React.FC<WallCoveringScreenProps> = ({ navigati
   } | null>(null);
 
   // Convert price to per linear yard based on price unit
-  const convertPriceToPerLinearYard = 
 const convertPriceToPerLinearYard = (
   price: number,
   unit: string,
