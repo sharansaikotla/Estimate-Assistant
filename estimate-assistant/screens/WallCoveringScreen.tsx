@@ -63,28 +63,33 @@ export const WallCoveringScreen: React.FC<WallCoveringScreenProps> = ({ navigati
   } | null>(null);
 
   // Convert price to per linear yard based on price unit
-  const convertPriceToPerLinearYard = (
-    price: number,
-    unit: string,
-    rollWidthInYards: number,
-    rollSizeInYards: number
-  ): number => {
-    switch (unit) {
-      case 'per-linear-yard':
-        return price;
-      case 'per-linear-foot':
-        return price * 3; // 3 feet = 1 yard
-      case 'per-square-meter':
-        return price * 1.19599 * rollWidthInYards; // Convert to sq yard, then multiply by roll width
-      case 'per-square-foot':
-        return price * 9 * (1 / 9) * rollWidthInYards; // Convert to sq yard, then multiply by roll width
-      case 'per-roll':
-        return price / rollSizeInYards; // Divide price by roll length in yards
-      default:
-        return price;
-    }
-  };
+  const convertPriceToPerLinearYard = 
+const convertPriceToPerLinearYard = (
+  price: number,
+  unit: string,
+  rollWidthInYards: number,
+  rollSizeInYards: number
+): number => {
+  switch (unit) {
+    case 'per-linear-yard':
+      return price;
 
+    case 'per-linear-foot':
+      return price * 3;
+
+    case 'per-square-meter':
+      return price * (1 / 1.19599) * rollWidthInYards;
+
+    case 'per-square-foot':
+      return price * 9 * rollWidthInYards;
+
+    case 'per-roll':
+      return price / rollSizeInYards;
+
+    default:
+      throw new Error(`Unknown pricing unit: ${unit}`);
+  }
+};
   const handleCalculate = () => {
     // Validate inputs
     const rollWidthNum = parseFloat(rollWidth);
